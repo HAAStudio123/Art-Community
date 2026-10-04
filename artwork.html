@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Artwork | HAA Studio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .artwork-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 6% 80px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            color: white;
+        }
+
+        .artwork-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .artwork-main-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #181818;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #292929;
+        }
+
+        .artwork-main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artwork-details h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .artwork-details .artist-name {
+            color: #999;
+            margin-bottom: 25px;
+        }
+
+        .artwork-description {
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .artwork-actions {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .artwork-actions button {
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #171717;
+            color: white;
+            cursor: pointer;
+        }
+
+        .artwork-actions button:hover {
+            border-color: #8b5cf6;
+        }
+
+        .process-section {
+            margin-top: 50px;
+            padding-top: 35px;
+            border-top: 1px solid #292929;
+        }
+
+        .process-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .process-video {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 12px;
+            background: #111;
+        }
+
+        .comments-section {
+            margin-top: 50px;
+            padding-top: 35px;
+            border-top: 1px solid #292929;
+        }
+
+        .comments-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .comment-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .comment-box input {
+            flex: 1;
+            padding: 13px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: #151515;
+            color: white;
+            outline: none;
+        }
+
+        .comment-box button {
+            padding: 13px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #8b5cf6;
+            color: white;
+            cursor: pointer;
+        }
+
+        #comments {
+            margin-top: 25px;
+        }
+
+        .comment {
+            background: #151515;
+            border: 1px solid #252525;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 750px) {
+
+            .artwork-container {
+                grid-template-columns: 1fr;
+            }
+
+            .artwork-details h1 {
+                font-size: 30px;
+            }
+
+            .comment-box {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <div class="logo">
+            HAA<span>Studio</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#explore">Explore</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Artwork Page -->
+    <main class="artwork-page">
+
+        <a href="index.html" class="back-button">
+            ← Back to Gallery
+        </a>
+
+
+        <div class="artwork-container">
+
+            <!-- Artwork Image -->
+            <div class="artwork-main-image">
+
+                <img
+                    src="https://placehold.co/800x800/222222/ffffff?text=Your+Artwork"
+                    alt="Artwork"
+                >
+
+            </div>
+
+
+            <!-- Artwork Information -->
+            <div class="artwork-details">
+
+                <h1>Artwork Name</h1>
+
+                <div class="artist-name">
+                    By Hamza
+                </div>
+
+                <p class="artwork-description">
+                    This is an artwork created for HAA Studio.
+                    The artist can add a description about the idea,
+                    style and story behind the artwork here.
+                </p>
+
+
+                <div class="artwork-actions">
+
+                    <button onclick="likeArtwork(this)">
+                        ♡ Like
+                    </button>
+
+                    <button onclick="focusComment()">
+                        💬 Comment
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Drawing Process -->
+        <section class="process-section">
+
+            <h2>🎬 Drawing Process</h2>
+
+            <p style="color:#999; margin-bottom:20px;">
+                Watch how this artwork was created.
+            </p>
+
+            <video
+                class="process-video"
+                controls
+                poster="https://placehold.co/1200x675/151515/ffffff?text=Drawing+Process"
+            >
+                <source src="" type="video/mp4">
+
+                Your browser does not support video playback.
+            </video>
+
+        </section>
+
+
+        <!-- Comments -->
+        <section class="comments-section" id="comments">
+
+            <h2>💬 Comments</h2>
+
+            <div class="comment-box">
+
+                <input
+                    type="text"
+                    id="commentInput"
+                    placeholder="Write a comment..."
+                >
+
+                <button onclick="addComment()">
+                    Comment
+                </button>
+
+            </div>
+
+            <div id="commentsList"></div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        © 2026 HAA Studio — Art Community
+    </footer>
+
+
+    <script>
+
+        function likeArtwork(button) {
+
+            if (button.classList.contains("liked")) {
+
+                button.classList.remove("liked");
+                button.innerText = "♡ Like";
+
+            } else {
+
+                button.classList.add("liked");
+                button.innerText = "♥ Liked";
+
+            }
+
+        }
+
+
+        function focusComment() {
+
+            document
+                .getElementById("commentInput")
+                .focus();
+
+            document
+                .getElementById("comments")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        function addComment() {
+
+            const input =
+                document.getElementById("commentInput");
+
+            const text =
+                input.value.trim();
+
+            if (text === "") {
+                return;
+            }
+
+            const comment =
+                document.createElement("div");
+
+            comment.className = "comment";
+
+            comment.innerText = text;
+
+            document
+                .getElementById("commentsList")
+                .appendChild(comment);
+
+            input.value = "";
+
+        }
+
+    </script>
+
+</body>
+</html>
